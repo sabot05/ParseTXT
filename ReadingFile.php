@@ -10,38 +10,37 @@ $allWords = [];
 $outputFirstWord = [];
 $outputBadWords = [];
 $outputRequiredWords = [];
+$allWordsNew = [];
+$allWordsName = [];
 
 //Убираем лишние пробелыы
 while ($line = fgets($file)) {
     if (preg_match('/\s/', $line)) {
-        //$withoutSpaceLine = preg_replace('/\s/', ' ', $line);
-        //разбиваем строки по разделителю
-        //$allWords [] = preg_split('/\s/', trim($withoutSpaceLine)); ;
-        //выбираем только первое слово
-        //  $firstWord = stristr($withoutSpaceLine,' ',true);
-        //$outputFirstWord [] = $firstWord;
-
         $allWords [] = preg_split('/\s/', trim($line));  // массив корпуса
     }
 }
 
-$outputFirstWord = array_column($allWords, 0); //массив из первого слова
-
+//берем первое значение внутреннего массива в качестве индекса массива
 foreach ($allWords as $number => $value) {
-    for ($i = 2; $i <= count($value) - 1; $i++) {
-        echo $value[$i] . " ";
-    }
-    echo "\n";
+    $nameIndex[] = $value[0];
 }
 
-foreach ($allWords as $number => $value) {
-    for ($i = 2; $i <= count($value) - 1; $i++) {
+//меняем индекс на имя первого элемента
+$allWordsName = array_combine($nameIndex, $allWords);
 
-        echo $value[$i] ;
-
-    }
-
+//удаляем первые два элемента в масссиве (слово и цифра)
+foreach ($allWordsName as $key => $value) {
+    $allWordsNew [$key] = array_splice($value, 2);
 }
+
+
+
+
+print_r($allWordsNew);
+
+
+
+
 
 
 
