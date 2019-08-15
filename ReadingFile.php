@@ -7,9 +7,6 @@
 
 $file = fopen("E:\\Study\\temp\\corpus.txt", "r");
 $allWords = [];
-$outputFirstWord = [];
-$outputBadWords = [];
-$outputRequiredWords = [];
 $allWordsNew = [];
 $allWordsName = [];
 $minusPlus = ['-' => '', '+' => ''];
@@ -22,11 +19,27 @@ while ($line = fgets($file)) {
     }
 }
 
+foreach ($allWords as $key => $value) {
+    $query = array_shift($value);
 
-//берем первое значение внутреннего массива и записываем в новый массив
+    array_shift($value);
+
+    foreach ($value as $word) {
+        if (strpos($word, "+") !== false) {
+            $allWordsNew[$query]["+"][] = trim($word, "+");
+        }
+        if (strpos($word, "-") !== false) {
+            $allWordsNew[$query]["-"][] = trim($word, "-");
+        }
+    }
+
+}
+print_r($allWordsNew);
+
+/*//берем первое значение внутреннего массива и записываем в новый массив
 foreach ($allWords as $key => $value) {
     $nameIndex[] = $value[0];
-   }
+}
 
 //меняем индекс на имя первого элемента
 
@@ -35,15 +48,11 @@ $allWords = array_combine($nameIndex, $allWords);
 //удаляем первые два элемента в массиве (слово и цифра)
 foreach ($allWords as $key => $value) {
     $allWordsNew [$key] = array_splice($value, 2);
-   }
-
-//добавляем два индекса МИНУС и ПЛЮС
-foreach ($allWordsNew as $key => $value) {
-    $allWordsNew[$key] = $minusPlus + $value;
 }
 
-print_r($allWordsNew);
 
+print_r($allWordsNew);
+*/
 
 
 
