@@ -6,7 +6,7 @@
  */
 
 //Ветка один
-
+//1.Изменения в первой ветке
 $file = fopen("E:\\Study\\temp\\corpus.txt", "r");
 $allWords = [];
 $allWordsNew = [];
