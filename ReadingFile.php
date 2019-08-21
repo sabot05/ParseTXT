@@ -6,7 +6,7 @@
  */
 
 //1. тестирование Git
-
+//2. измененя в мастере
 $file = fopen("E:\\Study\\temp\\corpus.txt", "r");
 $allWords = [];
 $allWordsNew = [];
