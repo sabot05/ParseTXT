@@ -7,6 +7,7 @@
 
 //Ветка один
 //1.Изменения в первой ветке
+//2.Изменения в мастере
 $file = fopen("E:\\Study\\temp\\corpus.txt", "r");
 $allWords = [];
 $allWordsNew = [];
