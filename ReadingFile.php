@@ -10,6 +10,7 @@
 //3. первй коммит
 //4. второй коммит
 //5. пятый коммит
+//6. изменения в мастере
 $file = fopen("E:\\Study\\temp\\corpus.txt", "r");
 $allWords = [];
 $allWordsNew = [];
