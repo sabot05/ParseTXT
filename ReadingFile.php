@@ -5,11 +5,11 @@
  * @return bool
  */
 
+//1. тестирование Git
+
 $file = fopen("E:\\Study\\temp\\corpus.txt", "r");
 $allWords = [];
 $allWordsNew = [];
-$allWordsName = [];
-$minusPlus = ['-' => '', '+' => ''];
 
 //Убираем лишние пробелы и создаем массив
 while ($line = fgets($file)) {
@@ -22,7 +22,7 @@ while ($line = fgets($file)) {
 foreach ($allWords as $key => $value) {
     $query = array_shift($value);
 
-    array_shift($value);
+  array_shift($value);
 
     foreach ($value as $word) {
         if (strpos($word, "+") !== false) {
@@ -53,6 +53,5 @@ foreach ($allWords as $key => $value) {
 
 print_r($allWordsNew);
 */
-
 
 
